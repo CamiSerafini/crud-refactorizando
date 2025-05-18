@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () =>
                 const tdActions = document.createElement('td');
                 const editBtn = document.createElement('button');
                 editBtn.textContent = 'Editar';
-                editBtn.classList.add('w3-button', 'w3-blue', 'w3-small', 'w3-margin-right');
+                editBtn.classList.add('edit', 'w3-large', 'w3-margin-right');
                 editBtn.onclick = () => {
                     fullnameInput.value = student.fullname;
                     emailInput.value = student.email;
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () =>
 
                 const deleteBtn = document.createElement('button');
                 deleteBtn.textContent = 'Borrar';
-                deleteBtn.classList.add('w3-button', 'w3-red', 'w3-small');
+                deleteBtn.classList.add('del', 'w3-large');
                 deleteBtn.onclick = () => deleteStudent(student.id);
 
                 tdActions.appendChild(editBtn);

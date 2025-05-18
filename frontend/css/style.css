@@ -1,0 +1,69 @@
+body {
+    font-family: 'Times New Roman', Times, serif;   
+    padding: 20px;
+    background-color:#dfe0e5;
+}
+
+h2{
+    text-decoration: underline;
+    font-size: 2.5rem;
+    color:#4d3f72;
+    font-family: 'Times New Roman', Times, serif; 
+}
+
+#studentForm{
+    background-color:#8a7c9c;
+}
+
+.w3-third{
+    color: white;
+    margin-top: 10px;
+}
+
+.w3-third label{
+    font-size: 18px;
+}
+
+.w3-third input{
+    border: #4d3f72 solid 2px;
+}
+
+.w3-button{
+    color: #4d3f72 !important;
+    background-color:#dfe0e5;
+}
+
+th{
+    background-color:#8a7c9c;
+    color: white;
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+td{
+    color: #433077;
+}
+
+.edit{
+    background-color: #4d3f72;
+    color: white;
+    border: #dfe0e5 solid 1px;
+    padding: 4px;
+}
+
+.del{
+    background-color: darkred;
+    color: white;
+    border: #dfe0e5 solid 1px;
+    padding: 4px;
+}
+
+form input, form button {
+    display: block;
+    margin: 10px 0;
+}
+.student {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+}

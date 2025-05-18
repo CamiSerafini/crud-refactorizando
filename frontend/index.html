@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gestión de Estudiantes</title>
   <link rel="stylesheet" href="css/w3.css" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body class="w3-container">
 
   <h2 class="w3-center w3-margin-top">Gestión de Estudiantes</h2>
 
-  <form id="studentForm" class="w3-card w3-padding w3-margin-bottom w3-light-grey">
+  <form id="studentForm" class="w3-card w3-padding w3-margin-bottom">
     <input type="hidden" id="studentId" />
     <!-- type="hidden" es un tipo de campo de entrada que se utiliza para
      guardar datos que no deben ser visibles ni manipulados por el usuario.
@@ -35,8 +35,8 @@
     </div>
 
     <div class="w3-margin-top">
-      <button class="w3-button w3-green" type="submit">Guardar</button>
-      <button class="w3-button w3-grey" type="reset" onclick="document.getElementById('studentId').value = ''">Cancelar</button>
+      <button class="w3-button" type="submit">Guardar</button>
+      <button class="w3-button" type="reset" onclick="document.getElementById('studentId').value = ''">Cancelar</button>
       <!-- Con type = "reset" me vuelve a poner el formulario en blanco sin datos y no
        realiza ningun cambio, ni agrega ni modifica ningun alumno -->
     </div>
