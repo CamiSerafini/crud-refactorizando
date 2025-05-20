@@ -1,7 +1,8 @@
 //frontDispatcher_2.0
 //Maneja la interaccion entre el backend y frontend
 
-const API_URL = '../backend/server.php';
+const API_URL = '../backend/server.php?module=students';
+
 //Define la URL de backend que se utilizará en todas las llamadas que vea fetch()
 //Se define en una constante porque es más fácil si luego tengo que hacer modificaciones.
 

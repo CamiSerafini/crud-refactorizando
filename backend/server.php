@@ -64,6 +64,6 @@ else
     echo json_encode(["error" => "Ruta para el módulo '{$module}' no encontrada"]);
 }
 
-/*Inluimos el archivo que define las rutas o la lógica que responderá la petición.
-require_once("./routes/studentsRoutes.php");*/
+//Inluimos el archivo que define las rutas o la lógica que responderá la petición.
+// require_once("./routes/studentsRoutes.php");
 ?>
