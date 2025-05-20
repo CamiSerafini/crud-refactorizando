@@ -1,7 +1,13 @@
 //frontDispatcher_2.0
+//Maneja la interaccion entre el backend y frontend
+
 const API_URL = '../backend/server.php';
+//Define la URL de backend que se utilizará en todas las llamadas que vea fetch()
+//Se define en una constante porque es más fácil si luego tengo que hacer modificaciones.
 
 document.addEventListener('DOMContentLoaded', () => 
+//DOMContentLoaded hace que primero cargue todo el HTML.
+//Mas que nada lo tengo que usar si incluyo js en el head del HTML y no en el final del body
 {
     const studentForm = document.getElementById('studentForm');
     const studentTableBody = document.getElementById('studentTableBody');
@@ -12,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () =>
     const studentIdInput = document.getElementById('studentId');
 
     // Leer todos los estudiantes al cargar
-    fetchStudents();
+    fetchStudents(); //función desarrollada mas abajo
 
     // Formulario: Crear o actualizar estudiante
     studentForm.addEventListener('submit', async (e) => {
@@ -26,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () =>
 
         const id = studentIdInput.value;
         const method = id ? 'PUT' : 'POST';
+        //Si hay un id, edita (PUT). Sino, es nuevo (POST)
         if (id) formData.id = id;
 
         try 
@@ -54,7 +61,9 @@ document.addEventListener('DOMContentLoaded', () =>
         try 
         {
             const res = await fetch(API_URL);
+            //Solicitud GET al backend que viene en JSON
             const students = await res.json();
+            //Lo convierte en un array
 
             //Limpiar tabla de forma segura.
             studentTableBody.replaceChildren();
@@ -62,9 +71,11 @@ document.addEventListener('DOMContentLoaded', () =>
             //igual no lo uso.
             //studentTableBody.innerHTML = "";
 
-            students.forEach(student => {
+            students.forEach(student => { //recorre de a uno el array
+                //Creo una fila por el primer elemento que leo
                 const tr = document.createElement('tr');
 
+                //Comienzo a crear las celdas
                 const tdName = document.createElement('td');
                 tdName.textContent = student.fullname;
 
@@ -88,16 +99,18 @@ document.addEventListener('DOMContentLoaded', () =>
                 const deleteBtn = document.createElement('button');
                 deleteBtn.textContent = 'Borrar';
                 deleteBtn.classList.add('del', 'w3-large');
-                deleteBtn.onclick = () => deleteStudent(student.id);
+                deleteBtn.onclick = () => deleteStudent(student.id); //funcion desarrollada abajo
 
                 tdActions.appendChild(editBtn);
                 tdActions.appendChild(deleteBtn);
 
+                //Agrego todas las celdas a esa fila
                 tr.appendChild(tdName);
                 tr.appendChild(tdEmail);
                 tr.appendChild(tdAge);
                 tr.appendChild(tdActions);
 
+                //Agrego la fila a la tabla
                 studentTableBody.appendChild(tr);
             });
         } catch (err) {
@@ -116,10 +129,11 @@ document.addEventListener('DOMContentLoaded', () =>
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ id }),
+                //Solicitud DELETE con el id en el cuerpo JSON
             });
 
             if (response.ok) {
-                await fetchStudents();
+                await fetchStudents(); //Me carga la tabla de nuevo y sin el elemento
             } else {
                 alert("Error al borrar");
             }
